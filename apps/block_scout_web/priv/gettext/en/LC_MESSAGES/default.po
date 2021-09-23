@@ -3206,3 +3206,18 @@ msgstr ""
 #: lib/block_scout_web/templates/transaction/_decoded_input_body.html.eex:10
 msgid "Error"
 msgstr ""
+
+#, elixir-format
+#: lib/block_scout_web/templates/common_components/_rap_pagination_container.html.eex:8
+msgid "Go to"
+msgstr ""
+
+#, elixir-format
+#: lib/block_scout_web/templates/common_components/_rap_pagination_container.html.eex:13
+msgid "Only the first"
+msgstr ""
+
+#, elixir-format
+#: lib/block_scout_web/templates/common_components/_rap_pagination_container.html.eex:13
+msgid "elements are displayed"
+msgstr ""
