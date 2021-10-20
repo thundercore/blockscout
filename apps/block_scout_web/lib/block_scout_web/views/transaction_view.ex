@@ -566,4 +566,26 @@ defmodule BlockScoutWeb.TransactionView do
   defp template_to_string(template) when is_tuple(template) do
     safe_to_string(template)
   end
+
+  def decoded_revert_reason(transaction) do
+    revert_reason = get_pure_transaction_revert_reason(transaction)
+
+    case revert_reason do
+      "0x" <> hex_part ->
+        proccess_hex_revert_reason(hex_part)
+
+      hex_part ->
+        proccess_hex_revert_reason(hex_part)
+    end
+  end
+
+  defp proccess_hex_revert_reason(hex_revert_reason) do
+    case Integer.parse(hex_revert_reason, 16) do
+      {number, ""} ->
+        :binary.encode_unsigned(number)
+
+      _ ->
+        hex_revert_reason
+    end
+  end
 end
