@@ -5,6 +5,7 @@ defmodule BlockScoutWeb.SmartContractView do
   alias Explorer.Chain.Address
   alias Explorer.Chain.Hash.Address, as: HashAddress
   alias Explorer.SmartContract.Helper
+  alias Explorer.Chain.Transaction
 
   def queryable?(inputs) when not is_nil(inputs), do: Enum.any?(inputs)
 
@@ -346,4 +347,14 @@ defmodule BlockScoutWeb.SmartContractView do
       type
     end
   end
+
+  def decode_revert_reason(to_address, revert_reason) do
+    smart_contract = Chain.address_hash_to_smart_contract(to_address)
+    Transaction.decoded_revert_reason(%Transaction{to_address: %{smart_contract: smart_contract}, hash: nil}, revert_reason)
+    #error_message_to_revert(error_message)
+  end
+
+  #defp error_message_to_revert("(" <> _code <> ")" <> _message <> "(" <> revert_message <> ")"), do: String.trim(revert_message)
+
+  #defp error_message_to_revert(error_message), do: error_message
 end

@@ -2,8 +2,14 @@
 <pre>
 [ <strong><%= @function_name %></strong> method Response ]
 <%= case @outputs do %>
-    <% {:error, message} -> %>
-        <span class="text-muted"><%=raw(values_with_type(message, :error, nil, 0))%></span>
+    <% {:error, %{code: code, message: message, data: data}} -> %>
+        <div style="padding-left: 20px">(error) : <%= "(#{code}) #{message} (#{data})" %></div>
+        <% revert_reason = Chain.format_revert_reason_message(data) %>
+        <%= decode_revert_reason(@smart_contract_address, revert_reason) %>
+    <% {:error, %{code: code, message: message}} -> %>
+        <div style="padding-left: 20px">(error) : <%= "(#{code}) #{message}" %></div>
+    <% {:error, error} -> %>
+        <div style="padding-left: 20px">(error) : <%= error %></div>
     <% _ -> %>
 [<%= for {item, index} <- Enum.with_index(@outputs) do %>
 <%= if named_argument?(item) do %><span class="function-response-item"><%= item["name"] %></span><% end %>

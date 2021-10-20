@@ -527,6 +527,8 @@ defmodule Explorer.Chain.Transaction do
     end
   end
 
+  def 
+
   defp do_decoded_input_data(data, abi, address_hash, hash) do
     full_abi = Chain.combine_proxy_implementation_abi(address_hash, abi)
 
