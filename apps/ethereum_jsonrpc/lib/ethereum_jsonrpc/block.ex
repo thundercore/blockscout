@@ -10,7 +10,6 @@ defmodule EthereumJSONRPC.Block do
 
   @type elixir :: %{String.t() => non_neg_integer | DateTime.t() | String.t() | nil}
   @type params :: %{
-          difficulty: pos_integer(),
           extra_data: EthereumJSONRPC.hash(),
           gas_limit: non_neg_integer(),
           gas_used: non_neg_integer(),
@@ -26,7 +25,6 @@ defmodule EthereumJSONRPC.Block do
           size: non_neg_integer(),
           state_root: EthereumJSONRPC.hash(),
           timestamp: DateTime.t(),
-          total_difficulty: non_neg_integer(),
           transactions_root: EthereumJSONRPC.hash(),
           uncles: [EthereumJSONRPC.hash()],
           base_fee_per_gas: non_neg_integer()
@@ -195,53 +193,6 @@ defmodule EthereumJSONRPC.Block do
   @spec elixir_to_params(elixir) :: params
   def elixir_to_params(
         %{
-          "difficulty" => difficulty,
-          "extraData" => extra_data,
-          "gasLimit" => gas_limit,
-          "gasUsed" => gas_used,
-          "hash" => hash,
-          "logsBloom" => logs_bloom,
-          "miner" => miner_hash,
-          "number" => number,
-          "parentHash" => parent_hash,
-          "receiptsRoot" => receipts_root,
-          "sha3Uncles" => sha3_uncles,
-          "size" => size,
-          "stateRoot" => state_root,
-          "timestamp" => timestamp,
-          "totalDifficulty" => total_difficulty,
-          "transactionsRoot" => transactions_root,
-          "uncles" => uncles,
-          "baseFeePerGas" => base_fee_per_gas
-        } = elixir
-      ) do
-    %{
-      difficulty: difficulty,
-      extra_data: extra_data,
-      gas_limit: gas_limit,
-      gas_used: gas_used,
-      hash: hash,
-      logs_bloom: logs_bloom,
-      miner_hash: miner_hash,
-      mix_hash: Map.get(elixir, "mixHash", "0x0"),
-      nonce: Map.get(elixir, "nonce", 0),
-      number: number,
-      parent_hash: parent_hash,
-      receipts_root: receipts_root,
-      sha3_uncles: sha3_uncles,
-      size: size,
-      state_root: state_root,
-      timestamp: timestamp,
-      total_difficulty: total_difficulty,
-      transactions_root: transactions_root,
-      uncles: uncles,
-      base_fee_per_gas: base_fee_per_gas
-    }
-  end
-
-  def elixir_to_params(
-        %{
-          "difficulty" => difficulty,
           "extraData" => extra_data,
           "gasLimit" => gas_limit,
           "gasUsed" => gas_used,
@@ -261,7 +212,6 @@ defmodule EthereumJSONRPC.Block do
         } = elixir
       ) do
     %{
-      difficulty: difficulty,
       extra_data: extra_data,
       gas_limit: gas_limit,
       gas_used: gas_used,
@@ -285,52 +235,6 @@ defmodule EthereumJSONRPC.Block do
 
   def elixir_to_params(
         %{
-          "difficulty" => difficulty,
-          "extraData" => extra_data,
-          "gasLimit" => gas_limit,
-          "gasUsed" => gas_used,
-          "hash" => hash,
-          "logsBloom" => logs_bloom,
-          "miner" => miner_hash,
-          "number" => number,
-          "parentHash" => parent_hash,
-          "receiptsRoot" => receipts_root,
-          "sha3Uncles" => sha3_uncles,
-          "size" => size,
-          "stateRoot" => state_root,
-          "timestamp" => timestamp,
-          "totalDifficulty" => total_difficulty,
-          "transactionsRoot" => transactions_root,
-          "uncles" => uncles
-        } = elixir
-      ) do
-    %{
-      difficulty: difficulty,
-      extra_data: extra_data,
-      gas_limit: gas_limit,
-      gas_used: gas_used,
-      hash: hash,
-      logs_bloom: logs_bloom,
-      miner_hash: miner_hash,
-      mix_hash: Map.get(elixir, "mixHash", "0x0"),
-      nonce: Map.get(elixir, "nonce", 0),
-      number: number,
-      parent_hash: parent_hash,
-      receipts_root: receipts_root,
-      sha3_uncles: sha3_uncles,
-      size: size,
-      state_root: state_root,
-      timestamp: timestamp,
-      total_difficulty: total_difficulty,
-      transactions_root: transactions_root,
-      uncles: uncles
-    }
-  end
-
-  # Geth: a response from eth_getblockbyhash for uncle blocks is without `totalDifficulty` param
-  def elixir_to_params(
-        %{
-          "difficulty" => difficulty,
           "extraData" => extra_data,
           "gasLimit" => gas_limit,
           "gasUsed" => gas_used,
@@ -349,7 +253,6 @@ defmodule EthereumJSONRPC.Block do
         } = elixir
       ) do
     %{
-      difficulty: difficulty,
       extra_data: extra_data,
       gas_limit: gas_limit,
       gas_used: gas_used,

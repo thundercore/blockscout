@@ -10,16 +10,9 @@ defmodule Explorer.Chain.Block do
   alias Explorer.Chain.{Address, Gas, Hash, PendingBlockOperation, Transaction, Wei}
   alias Explorer.Chain.Block.{Reward, SecondDegreeRelation}
 
-  @optional_attrs ~w(size refetch_needed total_difficulty difficulty base_fee_per_gas)a
+  @optional_attrs ~w(size refetch_needed base_fee_per_gas)a
 
   @required_attrs ~w(consensus gas_limit gas_used hash miner_hash nonce number parent_hash timestamp)a
-
-  @typedoc """
-  How much work is required to find a hash with some number of leading 0s.  It is measured in hashes for PoW
-  (Proof-of-Work) chains like Ethereum.  In PoA (Proof-of-Authority) chains, it does not apply as blocks are validated
-  in a round-robin fashion, and so the value is always `Decimal.new(0)`.
-  """
-  @type difficulty :: Decimal.t()
 
   @typedoc """
   Number of the block in the chain.
@@ -50,7 +43,6 @@ defmodule Explorer.Chain.Block do
   """
   @type t :: %__MODULE__{
           consensus: boolean(),
-          difficulty: difficulty(),
           gas_limit: Gas.t(),
           gas_used: Gas.t(),
           hash: Hash.Full.t(),
@@ -61,7 +53,6 @@ defmodule Explorer.Chain.Block do
           parent_hash: Hash.t(),
           size: non_neg_integer(),
           timestamp: DateTime.t(),
-          total_difficulty: difficulty(),
           transactions: %Ecto.Association.NotLoaded{} | [Transaction.t()],
           refetch_needed: boolean(),
           base_fee_per_gas: Wei.t(),
@@ -71,14 +62,12 @@ defmodule Explorer.Chain.Block do
   @primary_key {:hash, Hash.Full, autogenerate: false}
   schema "blocks" do
     field(:consensus, :boolean)
-    field(:difficulty, :decimal)
     field(:gas_limit, :decimal)
     field(:gas_used, :decimal)
     field(:nonce, Hash.Nonce)
     field(:number, :integer)
     field(:size, :integer)
     field(:timestamp, :utc_datetime_usec)
-    field(:total_difficulty, :decimal)
     field(:refetch_needed, :boolean)
     field(:base_fee_per_gas, Wei)
     field(:is_empty, :boolean)

@@ -46,7 +46,6 @@ defmodule Indexer.Transform.Blocks do
       decode(block.transactions_root),
       decode(block.receipts_root),
       decode(block.logs_bloom),
-      block.difficulty,
       block.number,
       block.gas_limit,
       block.gas_used,

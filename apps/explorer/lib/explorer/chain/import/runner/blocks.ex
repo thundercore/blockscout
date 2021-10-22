@@ -243,7 +243,6 @@ defmodule Explorer.Chain.Import.Runner.Blocks do
       update: [
         set: [
           consensus: fragment("EXCLUDED.consensus"),
-          difficulty: fragment("EXCLUDED.difficulty"),
           gas_limit: fragment("EXCLUDED.gas_limit"),
           gas_used: fragment("EXCLUDED.gas_used"),
           miner_hash: fragment("EXCLUDED.miner_hash"),
@@ -252,19 +251,17 @@ defmodule Explorer.Chain.Import.Runner.Blocks do
           parent_hash: fragment("EXCLUDED.parent_hash"),
           size: fragment("EXCLUDED.size"),
           timestamp: fragment("EXCLUDED.timestamp"),
-          total_difficulty: fragment("EXCLUDED.total_difficulty"),
           # Don't update `hash` as it is used for the conflict target
           inserted_at: fragment("LEAST(?, EXCLUDED.inserted_at)", block.inserted_at),
           updated_at: fragment("GREATEST(?, EXCLUDED.updated_at)", block.updated_at)
         ]
       ],
       where:
-        fragment("EXCLUDED.consensus <> ?", block.consensus) or fragment("EXCLUDED.difficulty <> ?", block.difficulty) or
+        fragment("EXCLUDED.consensus <> ?", block.consensus) or
           fragment("EXCLUDED.gas_limit <> ?", block.gas_limit) or fragment("EXCLUDED.gas_used <> ?", block.gas_used) or
           fragment("EXCLUDED.miner_hash <> ?", block.miner_hash) or fragment("EXCLUDED.nonce <> ?", block.nonce) or
           fragment("EXCLUDED.number <> ?", block.number) or fragment("EXCLUDED.parent_hash <> ?", block.parent_hash) or
-          fragment("EXCLUDED.size <> ?", block.size) or fragment("EXCLUDED.timestamp <> ?", block.timestamp) or
-          fragment("EXCLUDED.total_difficulty <> ?", block.total_difficulty)
+          fragment("EXCLUDED.size <> ?", block.size) or fragment("EXCLUDED.timestamp <> ?", block.timestamp)
     )
   end
 

@@ -159,8 +159,6 @@ defmodule Explorer.Factory do
       parent_hash: block_hash(),
       nonce: sequence("block_nonce", & &1),
       miner: build(:address),
-      difficulty: Enum.random(1..100_000),
-      total_difficulty: Enum.random(1..100_000),
       size: Enum.random(1..100_000),
       gas_limit: Enum.random(1..100_000),
       gas_used: Enum.random(1..100_000),

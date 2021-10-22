@@ -56,14 +56,12 @@ defmodule BlockScoutWeb.Schema.Types do
   object :block do
     field(:hash, :full_hash)
     field(:consensus, :boolean)
-    field(:difficulty, :decimal)
     field(:gas_limit, :decimal)
     field(:gas_used, :decimal)
     field(:nonce, :nonce_hash)
     field(:number, :integer)
     field(:size, :integer)
     field(:timestamp, :datetime)
-    field(:total_difficulty, :decimal)
     field(:miner_hash, :address_hash)
     field(:parent_hash, :full_hash)
   end
