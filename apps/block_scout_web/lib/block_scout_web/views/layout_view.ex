@@ -7,54 +7,41 @@ defmodule BlockScoutWeb.LayoutView do
 
   import BlockScoutWeb.AddressView, only: [from_address_hash: 1]
 
-  @issue_url "https://github.com/blockscout/blockscout/issues/new"
+  @issue_url "https://github.com/thundercore/blockscout/issues/new"
   @default_other_networks [
     %{
-      title: "POA",
-      url: "https://blockscout.com/poa/core"
+      title: "Thundercore Mainnet",
+      url: "https://blockscout.com/poa/core",
+      test_net?: false
     },
     %{
-      title: "Sokol",
-      url: "https://blockscout.com/poa/sokol",
+      title: "Thundercore Testnet",
+      url: "https://blockscout.com/poa/core",
       test_net?: true
     },
-    %{
-      title: "xDai",
-      url: "https://blockscout.com/xdai/mainnet"
-    },
-    %{
-      title: "Ethereum Classic",
-      url: "https://blockscout.com/etc/mainnet",
-      other?: true
-    },
-    %{
-      title: "RSK",
-      url: "https://blockscout.com/rsk/mainnet",
-      other?: true
-    }
   ]
 
   alias BlockScoutWeb.SocialMedia
 
   def logo do
-    Keyword.get(application_config(), :logo) || "/images/blockscout_logo.svg"
+    Keyword.get(application_config(), :logo) || "/images/thunder.svg"
   end
 
   def logo_footer do
     Keyword.get(application_config(), :logo_footer) || Keyword.get(application_config(), :logo) ||
-      "/images/blockscout_logo.svg"
+      "/images/thunder.svg"
   end
 
   def logo_text do
-    Keyword.get(application_config(), :logo_text) || nil
+    Keyword.get(application_config(), :logo_text) || "Thundercore"
   end
 
   def subnetwork_title do
-    Keyword.get(application_config(), :subnetwork) || "Sokol"
+    Keyword.get(application_config(), :subnetwork) || "Thundercore Test"
   end
 
   def network_title do
-    Keyword.get(application_config(), :network) || "POA"
+    Keyword.get(application_config(), :network) || "Thundercore"
   end
 
   defp application_config do

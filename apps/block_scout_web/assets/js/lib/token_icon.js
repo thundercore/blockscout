@@ -1,21 +1,18 @@
 function getTokenIconUrl (chainID, addressHash) {
   var chainName = null
   switch (chainID) {
-    case '1':
-      chainName = 'ethereum'
+    case '108':
+      chainName = "thundercore"
       break
-    case '99':
-      chainName = 'poa'
-      break
-    case '100':
-      chainName = 'xdai'
+    case '18':
+      chainName = "thundercore-testnet"
       break
     default:
       chainName = null
       break
   }
   if (chainName) {
-    return `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/${chainName}/assets/${addressHash}/logo.png`
+    return `https://raw.githubusercontent.com/thundercore/token-list/master/assets/${chainName}/${addressHash}/logo.png`
   } else {
     return null
   }
