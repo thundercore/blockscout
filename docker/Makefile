@@ -329,6 +329,10 @@ endif
 ifdef DISPLAY_TOKEN_ICONS
 	BLOCKSCOUT_CONTAINER_PARAMS += -e 'DISPLAY_TOKEN_ICONS=$(DISPLAY_TOKEN_ICONS)'
 endif
+ifdef HOST_VOLUME
+	BLOCKSCOUT_CONTAINER_PARAMS += -v '${HOST_VOLUME}:/tt'
+endif
+
 
 HAS_BLOCKSCOUT_IMAGE := $(shell docker images | grep -sw ${DOCKER_IMAGE})
 build: 
@@ -381,6 +385,13 @@ start: build postgres
 					$(BLOCKSCOUT_CONTAINER_PARAMS) \
 					-p 4000:4000 \
 					$(DOCKER_IMAGE) /bin/sh -c "mix do ecto.create, ecto.migrate; mix phx.server"
+
+dev: build postgres
+	@echo "==> Starting blockscout"
+	@docker run -it --rm --name $(BS_CONTAINER_NAME) \
+					$(BLOCKSCOUT_CONTAINER_PARAMS) \
+					-p 4000:4000 \
+					$(DOCKER_IMAGE) /bin/sh
 
 run: start
 
