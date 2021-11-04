@@ -1,6 +1,6 @@
 // Default variables
 $header-background-color: #fff !default;
-$header-links-color: #828ba0 !default;
+$header-links-color: #6d6d6d !default;
 $header-links-color-active: #333 !default;
 $header-icon-color: $header-links-color !default;
 $header-icon-color-hover: $secondary !default;
@@ -201,9 +201,8 @@ $navbar-logo-width: auto !default;
     width: 100%;
 
     &.border {
-      border-color: $secondary !important;
       border-radius: 5px;
-      color: $secondary;
+      color: #313131;
       background-color: $header-textfield-background-color;
     }
   }

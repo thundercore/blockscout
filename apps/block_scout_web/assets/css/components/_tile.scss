@@ -40,7 +40,7 @@ $tile-body-a-color: #5959d8 !default;
     }
 
     .tile-status-label {
-      color: inherit;
+      color: $color;
     }
 
     .tile-transaction-type-block {
