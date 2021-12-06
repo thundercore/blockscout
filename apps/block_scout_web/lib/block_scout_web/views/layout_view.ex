@@ -10,12 +10,12 @@ defmodule BlockScoutWeb.LayoutView do
   @issue_url "https://github.com/thundercore/blockscout/issues/new"
   @default_other_networks [
     %{
-      title: "Thundercore Mainnet",
+      title: "ThunderCore Mainnet",
       url: "https://blockscout.com/poa/core",
       test_net?: false
     },
     %{
-      title: "Thundercore Testnet",
+      title: "ThunderCore Testnet",
       url: "https://blockscout.com/poa/core",
       test_net?: true
     },
@@ -33,15 +33,15 @@ defmodule BlockScoutWeb.LayoutView do
   end
 
   def logo_text do
-    Keyword.get(application_config(), :logo_text) || "Thundercore"
+    Keyword.get(application_config(), :logo_text) || "ThunderCore"
   end
 
   def subnetwork_title do
-    Keyword.get(application_config(), :subnetwork) || "Thundercore Test"
+    Keyword.get(application_config(), :subnetwork) || "ThunderCore Test"
   end
 
   def network_title do
-    Keyword.get(application_config(), :network) || "Thundercore"
+    Keyword.get(application_config(), :network) || "ThunderCore"
   end
 
   defp application_config do
