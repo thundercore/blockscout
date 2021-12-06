@@ -133,20 +133,9 @@
             </div>
           </li>
         <% end %>
-        <li class="nav-item dropdown">
-          <a class="nav-link topnav-nav-link active-icon <%= if dropdown_nets() != [], do: "dropdown-toggle js-show-network-selector" %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="nav-link-icon">
-              <%= render BlockScoutWeb.IconsView, "_active_icon.html" %>
-            </span>
+          <li class="nav-item nav-link topnav-nav-link nav-link-icon">
             <%= subnetwork_title() %>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item header division">Testnets</a>
-            <%= for %{url: url, title: title} <- test_nets(dropdown_nets()) do %>
-              <a class="dropdown-item" href="<%= url %>"><%= title %></a>
-            <% end %>
-          </div>
-        </li>
+          </li>
       </ul>
       <!-- Dark mode changer -->
       <button class="dark-mode-changer" id="dark-mode-changer">

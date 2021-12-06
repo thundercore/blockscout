@@ -37,7 +37,7 @@ defmodule BlockScoutWeb.LayoutView do
   end
 
   def subnetwork_title do
-    Keyword.get(application_config(), :subnetwork) || "ThunderCore Test"
+    Keyword.get(application_config(), :subnetwork) || "ThunderCore Testnet"
   end
 
   def network_title do
