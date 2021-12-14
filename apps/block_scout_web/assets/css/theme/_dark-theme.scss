@@ -40,13 +40,11 @@ $dark-stakes-banned-background: #ffe81c;
     background-color: #ffe81c !important;
     .input-group-text {
       &.border {
-        background-color: $dark-light-bg;
+        background-color: white;
       }
     }
   }
-  .navbar-brand .navbar-logo {
-    filter: brightness(0) !important;
-  }
+
   .navbar.navbar-primary .navbar-nav .nav-link {
     color: $body-dark;
     .nav-link-icon {
@@ -125,7 +123,7 @@ $dark-stakes-banned-background: #ffe81c;
   }
   .dashboard-banner-chart-legend
     .dashboard-banner-chart-legend-item:nth-child(2)::before {
-    background-color: $dark-secondary;
+    background-color: rgba(#fff, 0.8);
   }
 
   // main container, layout, cards
@@ -153,7 +151,7 @@ $dark-stakes-banned-background: #ffe81c;
   .card-tab {
     background-color: transparent;
     &:hover:not(.active) {
-      background-color: rgba($dark-primary, 0.15);
+      background-color: rgba(#ffe81c, 0.15);
       color: #fff;
     }
     &.active {
@@ -163,7 +161,8 @@ $dark-stakes-banned-background: #ffe81c;
   }
 
   .card-background-1 {
-    background-color: $dark-primary-alternate;
+    background-color: #ffe81c;
+    color: black;
   }
 
   // Components
@@ -224,7 +223,7 @@ $dark-stakes-banned-background: #ffe81c;
     border-left-color: #ffe81c;
   }
   .tile.tile-type-block .tile-status-label {
-    color: $dark-primary;
+    color: white;
   }
   .tile.tile-type-block .tile-transaction-type-block {
     border-right-color: $dark-primary;
@@ -238,7 +237,7 @@ $dark-stakes-banned-background: #ffe81c;
     background-color: $dark-primary;
   }
   .tile .tile-title-lg:not([data-balance-change-sign]) {
-    color: $dark-primary;
+    color: white;
   }
 
   // btns
@@ -254,17 +253,25 @@ $dark-stakes-banned-background: #ffe81c;
     }
   }
 
+  .btn-wallet-icon {
+    color: white;
+
+    &:hover {
+      color: #ffe81c
+    }
+  }
+
   .btn-copy-icon,
   .btn-qr-icon,
   .btn-address-card-icon .btn-contract-icon {
     border-color: $dark-primary;
     path {
-      fill: $dark-primary;
+      fill: #fff;
     }
     &:hover {
       background-color: $dark-primary;
       path {
-        fill: #fff;
+        fill: #ffe81c;
       }
     }
   }
@@ -389,7 +396,7 @@ $dark-stakes-banned-background: #ffe81c;
     color: #fff;
   }
   .api-text-monospace {
-    color: $dark-primary;
+    color: #fff;
   }
   .api-text-monospace-background {
     background-color: rgba($dark-primary, 0.15);
@@ -520,7 +527,7 @@ $dark-stakes-banned-background: #ffe81c;
 
   // coin balance history chart
   .chartjs-render-monitor[data-chart="coinBalanceHistoryChart"] {
-    filter: brightness(0) invert(1) !important;
+    filter: brightness(1) invert(1) !important;
   }
 
   // logs search
@@ -1218,6 +1225,6 @@ $dark-stakes-banned-background: #ffe81c;
 }
 
 .dark-theme-applied .btn-no-border-link-to-tems {
-  border-color: $dark-primary !important;
-  color: $dark-primary !important;
+  background-color: gray;
+  color: white !important;
 }

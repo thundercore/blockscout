@@ -9,12 +9,10 @@ $footer-background-color: $primary;
 $footer-title-color: #fff;
 $footer-text-color: #96bde8;
 $footer-item-disc-color: $secondary;
-.footer-logo { filter: brightness(0) invert(1); }
 
 // dashboard
-$dashboard-line-color-price: $tertiary; // price left border
-
-$dashboard-line-color-market: $secondary;
+$dashboard-line-color-price: #FFE81C; // price left border
+$dashboard-line-color-market: rgba(#fff, 0.8);
 
 $dashboard-banner-chart-legend-label-color: $footer-text-color;
 $dashboard-stats-item-label-color: $footer-text-color;

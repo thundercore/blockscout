@@ -4,7 +4,7 @@ $card-default-border-radius: 10px !default;
 $card-horizontal-padding: 30px;
 $card-vertical-padding: 30px;
 $card-background-1: $primary !default;
-$card-background-1-text-color: #fff !default;
+$card-background-1-text-color: rgb(255, 255, 255) !default;
 $card-tab-icon-color: $secondary !default;
 $card-tab-icon-color-active: #fff !default;
 
@@ -32,8 +32,8 @@ $card-tab-icon-color-active: #fff !default;
 }
 
 .card-background-1 {
-  background-color: $card-background-1;
-  color: $card-background-1-text-color;
+  background-color: #ffe81c;
+  color: black;
   a:not(.dropdown-item),
   a:not(.dropdown-item):hover {
     color: $card-background-1-text-color;
@@ -216,7 +216,7 @@ $card-tab-icon-color-active: #fff !default;
 
   &:hover {
     background-color: rgba($card-tab-active, 0.15);
-    color: $card-tab-active;
+    color: black;
     text-decoration: none;
   }
 

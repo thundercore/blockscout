@@ -11,7 +11,7 @@ Chart.defaults.font.family = 'Nunito, "Helvetica Neue", Arial, sans-serif,"Apple
 Chart.register(LineController, LineElement, PointElement, LinearScale, TimeScale, Title, Tooltip)
 
 const grid = {
-  display: false,
+  display: true,
   drawBorder: false,
   drawOnChartArea: false
 }
@@ -65,7 +65,7 @@ const config = {
         grid: grid,
         ticks: {
           beginAtZero: true,
-          callback: (value, _index, _values) => `$${numeral(value).format('0,0.00')}`,
+          callback: (value, _index, _values) => `$${numeral(value).format('0,0.000')}`,
           maxTicksLimit: 4,
           color: sassVariables.dashboardBannerChartAxisFontColor
         }

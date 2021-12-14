@@ -14,6 +14,10 @@ export function createCoinBalanceHistoryChart (el) {
 
   $.getJSON(dataPath, { type: 'JSON' })
     .done(data => {
+      const isDarkMode = localStorage.getItem("current-color-mode") === "dark";
+      const lighterColor = "rgb(204,204,204)";
+      const darkerColor = "rgb(187,187,187)"
+
       $chartContainer.show()
 
       const coinBalanceHistoryData = humps.camelizeKeys(data)
@@ -38,7 +42,9 @@ export function createCoinBalanceHistoryChart (el) {
             data: coinBalanceHistoryData,
             lineTension: 0,
             cubicInterpolationMode: 'monotone',
-            fill: true
+            fill: true,
+            borderColor: [darkerColor],
+            backgroundColor: [lighterColor]
           }]
         },
         plugins: {
@@ -58,6 +64,9 @@ export function createCoinBalanceHistoryChart (el) {
                 unit: 'day',
                 tooltipFormat: 'YYYY-MM-DD',
                 stepSize: stepSize
+              },
+              grid: {
+                color: darkerColor
               }
             },
             y: {
@@ -68,6 +77,9 @@ export function createCoinBalanceHistoryChart (el) {
               title: {
                 display: true,
                 labelString: window.localized.Ether
+              },
+              grid: {
+                color: darkerColor
               }
             }
           }

@@ -12,8 +12,8 @@ $footer-item-disc-color: $tertiary;
 $footer-social-icon-color: #3a6ea7;
 
 // dashboard
-$dashboard-line-color-price: $secondary;
-$dashboard-line-color-market: $tertiary;
+$dashboard-line-color-price: #FFE81C;
+$dashboard-line-color-market: rgba(#fff, 0.8);
 $dashboard-banner-gradient-start: #7ba4d1;
 $dashboard-banner-gradient-end: #3a6ea7;
 
@@ -66,10 +66,6 @@ $card-tab-active: $tertiary;
       $dashboard-banner-gradient-start,
       $dashboard-banner-gradient-end
     );
-  }
-
-  .footer-logo {
-    filter: brightness(0) invert(1);
   }
 }
 

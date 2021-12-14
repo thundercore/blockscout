@@ -17,7 +17,7 @@ $footer-item-disc-color: $secondary;
 $footer-social-icon-color: $secondary;
 
 // dashboard
-$dashboard-line-color-price: $tertiary; // price left border
+$dashboard-line-color-price: #FFE81C; // price left border
 
 $dashboard-banner-chart-legend-label-color: $additional-font;
 $dashboard-stats-item-label-color: $additional-font;
@@ -56,10 +56,6 @@ $card-tab-active: $secondary;
         $dashboard-banner-gradient-start,
         $dashboard-banner-gradient-end
       );
-    }
-
-    .footer-logo {
-      filter: brightness(0) invert(1);
     }
 }
 

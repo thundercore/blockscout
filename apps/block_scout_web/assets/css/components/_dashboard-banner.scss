@@ -4,8 +4,8 @@ $dashboard-banner-gradient-end: lighten(
   5%
 ) !default;
 $dashboard-banner-network-plain-container-background-color: lighten($dashboard-banner-gradient-end, 5%) !default;
-$dashboard-line-color-price: lighten($dashboard-banner-gradient-end, 5%) !default;
-$dashboard-line-color-market: $secondary !default;
+$dashboard-line-color-price: #FFE81C !default;
+$dashboard-line-color-market: rgba(#fff, 0.8) !default;
 $dashboard-line-color-transactions: $warning !default;
 $dashboard-stats-item-label-color: #fff !default;
 $dashboard-stats-item-value-color: rgba(#fff, 0.8) !default;
@@ -118,7 +118,7 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
     }
 
     &:nth-child(2)::before {
-      background-color: #FFE81C;
+      background-color: rgba(#fff, 0.8);
     }
 
     &:nth-child(3)::before {
