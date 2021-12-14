@@ -72,9 +72,6 @@ $dark-stakes-banned-background: #ffe81c;
       color: $body-dark;
     }
   }
-  .navbar.navbar-primary .navbar-toggler .navbar-toggler-icon {
-    filter: invert(1);
-  }
 
   // footer
   .footer {
@@ -402,8 +399,8 @@ $dark-stakes-banned-background: #ffe81c;
     background-color: rgba($dark-primary, 0.15);
   }
   .badge.badge-neutral {
-    background-color: rgba($dark-primary, 0.15);
-    color: $dark-primary;
+    background-color: rgba(76, 116, 155, 0.1);
+    color: #61affe;
   }
 
   // download csv button
@@ -790,9 +787,9 @@ $dark-stakes-banned-background: #ffe81c;
     border-top-color: darken($labels-dark, 30);
   }
   .api-doc-tab {
-    color: $dark-primary !important;
+    color: white !important;
     &.active {
-      border-bottom-color: $dark-primary;
+      border-bottom-color: white;
     }
   }
 
