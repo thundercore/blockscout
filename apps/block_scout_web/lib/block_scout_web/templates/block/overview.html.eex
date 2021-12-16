@@ -146,6 +146,16 @@
             </dl>
           <% end %>
           <%= if block_type(@block) == "Block" do %>
+            <%= if !is_nil(@block.session) and !is_nil(@block.blocksn_e) and !is_nil(@block.blocksn_s) do %>
+            <dl class="row">
+              <dt class="col-sm-3 col-lg-2 text-muted">
+                <%= render BlockScoutWeb.CommonComponentsView, "_i_tooltip_2.html",
+                text: gettext("Session number of pala consensus") %>
+                <%= gettext("Session") %>
+              </dt>
+              <dd class="col-sm-9 col-lg-10">(<%= to_string(@block.session) %>, <%= to_string(@block.blocksn_e) %>, <%= to_string(@block.blocksn_s) %>)</dd>
+            </dl>
+            <% end %>
             <!-- Gas Used -->
             <dl class="row">
               <dt class="col-sm-3 col-lg-2 text-muted">

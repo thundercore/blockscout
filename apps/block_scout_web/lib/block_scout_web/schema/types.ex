@@ -64,6 +64,9 @@ defmodule BlockScoutWeb.Schema.Types do
     field(:timestamp, :datetime)
     field(:miner_hash, :address_hash)
     field(:parent_hash, :full_hash)
+    field(:session, :integer)
+    field(:blocksn_e, :integer)
+    field(:blocksn_s, :integer)
   end
 
   @desc """

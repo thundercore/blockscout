@@ -662,10 +662,10 @@ $dark-stakes-banned-background: #ffe81c;
     border-color: $labels-dark;
   }
   .radio-big input[type="radio"]:checked + .radio-icon {
-    border-color: $dark-primary;
+    border-color: $labels-dark;
   }
   .radio-big input[type="radio"]:checked + .radio-icon::before {
-    background: $dark-primary;
+    background: $labels-dark;
   }
   .radio-big .radio-text {
     color: #fff;

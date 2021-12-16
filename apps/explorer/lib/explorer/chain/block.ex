@@ -10,9 +10,16 @@ defmodule Explorer.Chain.Block do
   alias Explorer.Chain.{Address, Gas, Hash, PendingBlockOperation, Transaction, Wei}
   alias Explorer.Chain.Block.{Reward, SecondDegreeRelation}
 
-  @optional_attrs ~w(size refetch_needed base_fee_per_gas)a
+  @optional_attrs ~w(size refetch_needed base_fee_per_gas session blocksn_e blocksn_s)a
 
   @required_attrs ~w(consensus gas_limit gas_used hash miner_hash nonce number parent_hash timestamp)a
+
+  @typedoc """
+  session number of pala consensus
+  """
+  @type session :: non_neg_integer()
+  @type blocksn_e :: non_neg_integer()
+  @type blocksn_s :: non_neg_integer()
 
   @typedoc """
   Number of the block in the chain.
@@ -20,10 +27,10 @@ defmodule Explorer.Chain.Block do
   @type block_number :: non_neg_integer()
 
   @typedoc """
+   * `session` - session number of pala consensus
    * `consensus`
      * `true` - this is a block on the longest consensus agreed upon chain.
      * `false` - this is an uncle block from a fork.
-   * `difficulty` - how hard the block was to mine.
    * `gas_limit` - If the total number of gas used by the computation spawned by the transaction, including the
      original message and any sub-messages that may be triggered, is less than or equal to the gas limit, then the
      transaction processes. If the total gas exceeds the gas limit, then all changes are reverted, except that the
@@ -37,11 +44,13 @@ defmodule Explorer.Chain.Block do
    * `parent_hash` - the hash of the parent block, which should have the previous `number`
    * `size` - The size of the block in bytes.
    * `timestamp` - When the block was collated
-   * `total_difficulty` - the total `difficulty` of the chain until this block.
    * `transactions` - the `t:Explorer.Chain.Transaction.t/0` in this block.
    * `base_fee_per_gas` - Minimum fee required per unit of gas. Fee adjusts based on network congestion.
   """
   @type t :: %__MODULE__{
+          session: non_neg_integer(),
+          blocksn_e: non_neg_integer(),
+          blocksn_s: non_neg_integer(),
           consensus: boolean(),
           gas_limit: Gas.t(),
           gas_used: Gas.t(),
@@ -61,6 +70,9 @@ defmodule Explorer.Chain.Block do
 
   @primary_key {:hash, Hash.Full, autogenerate: false}
   schema "blocks" do
+    field(:session, :integer)
+    field(:blocksn_e, :integer)
+    field(:blocksn_s, :integer)
     field(:consensus, :boolean)
     field(:gas_limit, :decimal)
     field(:gas_used, :decimal)

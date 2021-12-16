@@ -10,6 +10,9 @@ defmodule EthereumJSONRPC.Block do
 
   @type elixir :: %{String.t() => non_neg_integer | DateTime.t() | String.t() | nil}
   @type params :: %{
+          session: non_neg_integer(),
+          blocksn_e: non_neg_integer(),
+          blocksn_s: non_neg_integer(),
           extra_data: EthereumJSONRPC.hash(),
           gas_limit: non_neg_integer(),
           gas_used: non_neg_integer(),
@@ -77,6 +80,11 @@ defmodule EthereumJSONRPC.Block do
   def from_response(%{id: id, result: block}, id_to_params) when is_map(id_to_params) do
     true = Map.has_key?(id_to_params, id)
 
+    {session, blocksn_e, blocksn_s} = get_blocksn(Map.get(block, "difficulty"))
+    block = Map.put(block, "session", session)
+    block = Map.put(block, "blocksn_e", blocksn_e)
+    block = Map.put(block, "blocksn_s", blocksn_s)
+
     {:ok, block}
   end
 
@@ -85,6 +93,21 @@ defmodule EthereumJSONRPC.Block do
     annotated_error = Map.put(error, :data, params)
 
     {:error, annotated_error}
+  end
+
+  def get_blocksn(difficulty) do
+    "0x" <> without_prefix = difficulty
+
+    difficulty_int = String.to_integer(without_prefix, 16)
+
+    bin_form = :binary.encode_unsigned(difficulty_int)
+    list_form = :binary.bin_to_list(bin_form)
+
+    session = :binary.decode_unsigned(:binary.list_to_bin(Enum.slice(list_form, 0, 4)), :little)
+    blocksn_e = :binary.decode_unsigned(:binary.list_to_bin(Enum.slice(list_form, 4, 4)), :little)
+    blocksn_s = :binary.decode_unsigned(:binary.list_to_bin(Enum.slice(list_form, 8, 4)), :little)
+
+    {session, blocksn_e, blocksn_s}
   end
 
   @doc """
@@ -193,6 +216,9 @@ defmodule EthereumJSONRPC.Block do
   @spec elixir_to_params(elixir) :: params
   def elixir_to_params(
         %{
+          "session" => session,
+          "blocksn_e" => blocksn_e,
+          "blocksn_s" => blocksn_s,
           "extraData" => extra_data,
           "gasLimit" => gas_limit,
           "gasUsed" => gas_used,
@@ -229,12 +255,18 @@ defmodule EthereumJSONRPC.Block do
       timestamp: timestamp,
       transactions_root: transactions_root,
       uncles: uncles,
-      base_fee_per_gas: base_fee_per_gas
+      base_fee_per_gas: base_fee_per_gas,
+      session: session,
+      blocksn_e: blocksn_e,
+      blocksn_s: blocksn_s
     }
   end
 
   def elixir_to_params(
         %{
+          "session" => session,
+          "blocksn_e" => blocksn_e,
+          "blocksn_s" => blocksn_s,
           "extraData" => extra_data,
           "gasLimit" => gas_limit,
           "gasUsed" => gas_used,
@@ -269,7 +301,10 @@ defmodule EthereumJSONRPC.Block do
       state_root: state_root,
       timestamp: timestamp,
       transactions_root: transactions_root,
-      uncles: uncles
+      uncles: uncles,
+      session: session,
+      blocksn_e: blocksn_e,
+      blocksn_s: blocksn_s,
     }
   end
 
@@ -475,13 +510,13 @@ defmodule EthereumJSONRPC.Block do
   end
 
   defp entry_to_elixir({key, quantity})
-       when key in ~w(difficulty gasLimit gasUsed minimumGasPrice baseFeePerGas number size cumulativeDifficulty totalDifficulty paidFees) and
+       when key in ~w(blocksn_e blocksn_s session difficulty gasLimit gasUsed minimumGasPrice baseFeePerGas number size cumulativeDifficulty totalDifficulty paidFees) and
               not is_nil(quantity) do
     {key, quantity_to_integer(quantity)}
   end
 
   # Size and totalDifficulty may be `nil` for uncle blocks
-  defp entry_to_elixir({key, nil}) when key in ~w(size totalDifficulty) do
+  defp entry_to_elixir({key, nil}) when key in ~w(blocksn_e blocksn_s session size totalDifficulty) do
     {key, nil}
   end
 

@@ -1182,6 +1182,11 @@ msgid "Gas Used"
 msgstr ""
 
 #, elixir-format
+#: lib/block_scout_web/templates/block/overview.html.eex:154
+msgid "Session"
+msgstr ""
+
+#, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:432
 msgid "Gas Used by Transaction"
 msgstr ""
@@ -2288,6 +2293,11 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:171
 msgid "The total gas amount used in the block and its percentage of gas filled in the block."
+msgstr ""
+
+#, elixir-format
+#: lib/block_scout_web/templates/block/overview.html.eex:153
+msgid "Session number of pala consensus"
 msgstr ""
 
 #, elixir-format
