@@ -1183,7 +1183,7 @@ msgstr ""
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:154
-msgid "Session"
+msgid "Epoch"
 msgstr ""
 
 #, elixir-format
@@ -2297,7 +2297,7 @@ msgstr ""
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:153
-msgid "Session number of pala consensus"
+msgid "Epoch number of pala consensus"
 msgstr ""
 
 #, elixir-format
