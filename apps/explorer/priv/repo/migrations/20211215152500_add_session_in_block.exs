@@ -1,4 +1,4 @@
-defmodule Explorer.Repo.Migrations.Add1559Support do
+defmodule Explorer.Repo.Migrations.AddEpochInfo do
   use Ecto.Migration
 
   def change do
