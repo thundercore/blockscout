@@ -103,6 +103,14 @@ defmodule EthereumJSONRPC.Block do
     bin_form = :binary.encode_unsigned(difficulty_int)
     list_form = :binary.bin_to_list(bin_form)
 
+    padding = 24 - length(list_form)
+
+    list_form = if padding != 0 do
+      List.duplicate(0, padding) ++ list_form
+    else
+      list_form
+    end
+
     session = :binary.decode_unsigned(:binary.list_to_bin(Enum.slice(list_form, 0, 4)), :little)
     blocksn_e = :binary.decode_unsigned(:binary.list_to_bin(Enum.slice(list_form, 4, 4)), :little)
     blocksn_s = :binary.decode_unsigned(:binary.list_to_bin(Enum.slice(list_form, 8, 4)), :little)
