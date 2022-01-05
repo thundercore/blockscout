@@ -36,7 +36,12 @@ config :indexer,
   # bytes
   memory_limit: 1 <<< 30,
   first_block: System.get_env("FIRST_BLOCK") || "",
-  last_block: System.get_env("LAST_BLOCK") || ""
+  last_block: System.get_env("LAST_BLOCK") || "",
+  block_sanitizer_batch_size: String.to_integer(System.get_env("BLOCK_SANITIZER_BATCH_SIZE") || "400"),
+  receipt_fetcher_block_batch_size: String.to_integer(System.get_env("RECEIPT_FETCHER_BLOCK_BATCH_SIZE") || "250"),
+  receipt_fetcher_concurrency: String.to_integer(System.get_env("RECEIPT_FETCHER_CONCURRENCY") || "10"),
+  catchup_fetcher_block_batch_size: String.to_integer(System.get_env("CATCHUP_FETCHER_BLOCK_BATCH_SIZE") || "10"),
+  catchup_fetcher_concurrency: String.to_integer(System.get_env("CATCHUP_FETCHER_CONCURRENCY") || "10")
 
 config :indexer, Indexer.Fetcher.PendingTransaction.Supervisor,
   disabled?: System.get_env("ETHEREUM_JSONRPC_VARIANT") == "besu"

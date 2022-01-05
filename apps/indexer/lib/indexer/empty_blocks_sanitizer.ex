@@ -20,10 +20,10 @@ defmodule Indexer.EmptyBlocksSanitizer do
   alias Explorer.Chain.Import.Runner.Blocks
 
   # milliseconds
-  @timeout 1_000
+  @timeout 3_000
 
   # unprocessed emty blocks to fetch at once
-  @limit 400
+  @limit Application.get_env(:indexer, :block_sanitizer_batch_size)
 
   @interval :timer.minutes(2)
 
