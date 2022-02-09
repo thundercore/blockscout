@@ -41,7 +41,9 @@ config :indexer,
   receipt_fetcher_block_batch_size: String.to_integer(System.get_env("RECEIPT_FETCHER_BLOCK_BATCH_SIZE") || "250"),
   receipt_fetcher_concurrency: String.to_integer(System.get_env("RECEIPT_FETCHER_CONCURRENCY") || "10"),
   catchup_fetcher_block_batch_size: String.to_integer(System.get_env("CATCHUP_FETCHER_BLOCK_BATCH_SIZE") || "10"),
-  catchup_fetcher_concurrency: String.to_integer(System.get_env("CATCHUP_FETCHER_CONCURRENCY") || "10")
+  catchup_fetcher_concurrency: String.to_integer(System.get_env("CATCHUP_FETCHER_CONCURRENCY") || "10"),
+  internal_transaction_block_batch_size: String.to_integer(System.get_env("INTERNAL_TRANSACTION_BLOCK_BATCH_SIZE") || "10"),
+  internal_transaction_concurrency: String.to_integer(System.get_env("INTERNAL_TRANSACTION_CONCURRENCY") || "4")
 
 config :indexer, Indexer.Fetcher.PendingTransaction.Supervisor,
   disabled?: System.get_env("ETHEREUM_JSONRPC_VARIANT") == "besu"
