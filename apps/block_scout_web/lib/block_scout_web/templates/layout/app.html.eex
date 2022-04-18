@@ -263,6 +263,8 @@
         document.getElementById("top-navbar").style.backgroundColor = "#282945";
         let modeChanger = document.getElementById("dark-mode-changer");
         modeChanger.className += " " + "dark-mode-changer--dark";
+        let logo = document.getElementById("navbar-logo");
+        logo.className = "navbar-logo-dark"
       }
     </script>
     <script defer data-cfasync="false">

@@ -10,7 +10,7 @@ $header-textfield-text-color: $header-links-color !default;
 $header-textfield-background-color: #f5f6fa !default;
 $header-textfield-magnifier-color: $header-links-color !default;
 $header-link-horizontal-padding: 0.71rem;
-$navbar-logo-height: 28px !default;
+$navbar-logo-height: 45px !default;
 $navbar-logo-width: auto !default;
 
 .navbar.navbar-primary {
@@ -241,6 +241,13 @@ $navbar-logo-width: auto !default;
 }
 
 .navbar-logo {
+  content: url("/images/thundercore_logo_w.svg");
+  height: $navbar-logo-height;
+  width: $navbar-logo-width;
+}
+
+.navbar-logo-dark {
+  content: url("/images/thundercore_logo.svg");
   height: $navbar-logo-height;
   width: $navbar-logo-width;
 }

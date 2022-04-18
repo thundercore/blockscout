@@ -3,15 +3,15 @@ $dashboard-banner-gradient-end: lighten(
   $dashboard-banner-gradient-start,
   5%
 ) !default;
-$dashboard-banner-network-plain-container-background-color: lighten($dashboard-banner-gradient-end, 5%) !default;
-$dashboard-line-color-price: #FFE81C !default;
+$dashboard-banner-network-plain-container-background-color: #0844D2 !default;
+$dashboard-line-color-price: #09D1D1 !default;
 $dashboard-line-color-market: rgba(#fff, 0.8) !default;
 $dashboard-line-color-transactions: $warning !default;
 $dashboard-stats-item-label-color: #fff !default;
 $dashboard-stats-item-value-color: rgba(#fff, 0.8) !default;
 $dashboard-banner-chart-legend-label-color: #fff !default;
 $dashboard-banner-chart-legend-value-color: $dashboard-stats-item-value-color !default;
-$dashboard-stats-item-border-color: $primary !default;
+$dashboard-stats-item-border-color: #0844D2 !default;
 $dashboard-banner-network-plain-container-height: 205px;
 $dashboard-banner-chart-axis-font-color: $dashboard-stats-item-value-color !default;
 $dashboard-banner-chart-axis-font-color-alt: #333;
@@ -114,7 +114,7 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
     }
 
     &:nth-child(1)::before {
-      background-color: #FFE81C;
+      background-color: #09D1D1;
     }
 
     &:nth-child(2)::before {
@@ -204,7 +204,7 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
   }
 
   .dashboard-banner-network-stats-value {
-    color: #313131;
+    color: white;
   }
 
   &::after {

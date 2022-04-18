@@ -3,7 +3,7 @@ $dark-bg: #1d1d1d; // hero shade
 $dark-light-bg: #161616; // pills bg shade
 $dark-light: #313131; // tile light top share
 $labels-dark: #fff6b6; // header nav, labels
-$dark-stakes-banned-background: #ffe81c;
+$dark-stakes-banned-background: #09D1D1;
 
 // Switcher
 .dark-mode-changer {
@@ -27,7 +27,7 @@ $dark-stakes-banned-background: #ffe81c;
   }
   &--dark {
     svg path {
-      fill: $dark-primary;
+      fill: white;
     }
   }
 }
@@ -37,7 +37,7 @@ $dark-stakes-banned-background: #ffe81c;
 
   // navbar
   .navbar.navbar-primary {
-    background-color: #ffe81c !important;
+    background-color: #0844D2 !important;
     .input-group-text {
       &.border {
         background-color: white;
@@ -45,31 +45,32 @@ $dark-stakes-banned-background: #ffe81c;
     }
   }
 
+
   .navbar.navbar-primary .navbar-nav .nav-link {
-    color: $body-dark;
+    color: $white;
     .nav-link-icon {
       svg path {
-        fill: $body-dark;
+        fill: $white;
       }
     }
     &.active,
     &:hover {
       .nav-link-icon {
         svg path {
-          fill: $body-dark;
+          fill: #09D1D1;
         }
       }
       &:before {
-        background-color: $body-dark;
+        background-color: #09D1D1;
       }
     }
   }
   .navbar.navbar-primary .form-control {
-    background-color: #ffe81c !important;
-    border-color: #ffe81c;
-    color: $body-dark;
+    background-color: #0844D2 !important;
+    border-color: #0844D2;
+    color: #0844D2;
     &::placeholder {
-      color: $body-dark;
+      color: #0844D2;
     }
   }
 
@@ -109,11 +110,11 @@ $dark-stakes-banned-background: #ffe81c;
   }
   .dashboard-banner-network-stats-label,
   .dashboard-banner-chart-legend .dashboard-banner-chart-legend-label {
-    color: #ffe81c;
+    color: #09D1D1;
   }
   .dashboard-banner-chart-legend
     .dashboard-banner-chart-legend-item:nth-child(1)::before {
-    background-color: #ffe81c;
+    background-color: #09D1D1;
   }
   .dashboard-banner-network-stats-item::before {
     background-color: $dark-secondary;
@@ -148,17 +149,17 @@ $dark-stakes-banned-background: #ffe81c;
   .card-tab {
     background-color: transparent;
     &:hover:not(.active) {
-      background-color: rgba(#ffe81c, 0.15);
+      background-color: rgba(#09D1D1, 0.15);
       color: #fff;
     }
     &.active {
-      background-color: #ffe81c;
+      background-color: #09D1D1;
       color: #000;
     }
   }
 
   .card-background-1 {
-    background-color: #ffe81c;
+    background-color: #09D1D1;
     color: black;
   }
 
@@ -217,7 +218,7 @@ $dark-stakes-banned-background: #ffe81c;
     background-color: $dark-primary;
   }
   .tile.tile-type-block {
-    border-left-color: #ffe81c;
+    border-left-color: #09D1D1;
   }
   .tile.tile-type-block .tile-status-label {
     color: white;
@@ -240,11 +241,11 @@ $dark-stakes-banned-background: #ffe81c;
   // btns
 
   .btn-line {
-    background-color: #ffe81c;
+    background-color: #09D1D1;
     border-color: $dark-primary;
     color: $dark-primary;
     &:hover {
-      border-color: #ffe81c;
+      border-color: #09D1D1;
       background-color: $dark-primary;
       color: #fff;
     }
@@ -254,7 +255,7 @@ $dark-stakes-banned-background: #ffe81c;
     color: white;
 
     &:hover {
-      color: #ffe81c
+      color: #09D1D1
     }
   }
 
@@ -268,7 +269,7 @@ $dark-stakes-banned-background: #ffe81c;
     &:hover {
       background-color: $dark-primary;
       path {
-        fill: #ffe81c;
+        fill: #09D1D1;
       }
     }
   }
@@ -1139,8 +1140,8 @@ $dark-stakes-banned-background: #ffe81c;
     }
   }
   .main-search-autocomplete {
-    background-color: #ffe81c !important;
-    color: #000 !important;
+    background-color: #0844D2 !important;
+    color: white !important;
   }
   .autocomplete-category {
     color: #fff !important;
